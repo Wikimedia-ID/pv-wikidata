@@ -1,2 +1,2 @@
 # pywikibot-wikidata
-This repository consists of code related to Wikidata projects
+This repository consists of code related to PV-Wikidata projects
