@@ -91,7 +91,7 @@ def create_source_claim(claim, source_data):
     claim.addSources([source_claim])
     return True
 
-with open('kabupaten_kota.csv', 'rt') as f:
+with open('kabupaten_kota.csv', 'rt') as f: #kabupaten_kota.csv is the lists of Kabupaten and Kota in Indonesia with the population number included
     reader = csv.reader(f)
     for row in reader:
         key = row[0]
