@@ -1,0 +1,17 @@
+SELECT distinct ?provinceLabel (COUNT(?district) AS ?count) WHERE {
+
+	{ ?regency wdt:P31 wd:Q3191695 }
+  	UNION { ?regency wdt:P31 wd:Q3199141 } 
+	UNION { ?regency wdt:P31 wd:Q4272761 }
+	UNION { ?regency wdt:P31 wd:Q11127777 }
+	?regency wdt:P2588 ?kemendagri .
+	?regency wdt:P2588 ?kemendagri .
+	?regency wdt:P131 ?province .
+	?province wdt:P31 wd:Q5098 .
+	
+	SERVICE wikibase:label {
+	 bd:serviceParam wikibase:language "id" .
+	}
+}
+GROUP BY ?provinceLabel
+ORDER BY ?provinceLabel
