@@ -1,0 +1,37 @@
+SELECT distinct ?village ?villageLabel  ?kemendagri WHERE {
+	
+	{ ?village wdt:P31 wd:Q2225692 }
+  	UNION { ?village wdt:P31 wd:Q532 }
+	UNION { ?village wdt:P31 wd:Q26211545 }
+	UNION { ?village wdt:P31 wd:Q965568 }
+	UNION { ?village wdt:P31 wd:Q4285979 }
+	UNION { ?village wdt:P31 wd:Q882149 }
+	UNION { ?village wdt:P31 wd:Q12488913 }
+	UNION { ?village wdt:P31 wd:Q12488911 }
+	UNION { ?village wdt:P31 wd:Q24659756 }
+	UNION { ?village wdt:P31 wd:Q19944049 }
+  	?village wdt:P2588 ?kemendagri .
+  	?village wdt:P131 ?district .
+		
+	
+	
+	{ ?district wdt:P31 wd:Q3700011 }
+	UNION { ?district wdt:P31 wd:Q4200298 }
+	?district wdt:P131 ?regency .
+	?district wdt:P2588 ?kemendagriDistrict .
+	
+	{ ?regency wdt:P31 wd:Q3191695 }
+	UNION { ?regency wdt:P31 wd:Q3199141 }
+	UNION { ?regency wdt:P31 wd:Q4272761 }
+	UNION { ?regency wdt:P31 wd:Q11127777 }
+	?regency wdt:P131 ?province .
+	OPTIONAL { ?regency p:P31 [pq:P582 ?end ]. }
+	FILTER(!BOUND(?end)) .
+	
+	?province wdt:P31 wd:Q5098 .
+	
+	SERVICE wikibase:label {
+	 bd:serviceParam wikibase:language "id" .
+	}
+}
+ORDER BY ?kemendagri
