@@ -5,7 +5,7 @@ from pywikibot import pagegenerators
 import csv
 
 """
-This code will use pywikibot to insert the population data for all Kabupaten and Kota in Indonesia,
+This code will use pywikibot to insert the population data for all regency and city in Indonesia,
 which stated in Buku Induk Kode dan Data Wilayah Administrasi Pemerintahan Per Provinsi, 
 Kabupaten/Kota dan Kecamatan Seluruh Indonesia issued by Kemendagri.
 """
@@ -13,7 +13,6 @@ Kabupaten/Kota dan Kecamatan Seluruh Indonesia issued by Kemendagri.
 
 p_stated_in = "P248" #ID for properties 'stated in'
 p_population = "P1082" #ID for properties 'population'
-p_ref_url = "P854" #ID for properties 'URL reference'
 
 population_source_qid = "Q24249960" #ID for the source of the data from Kemendagri
 
@@ -91,7 +90,7 @@ def create_source_claim(claim, source_data):
     claim.addSources([source_claim])
     return True
 
-with open('kabupaten_kota.csv', 'rt') as f: #kabupaten_kota.csv is the lists of Kabupaten and Kota in Indonesia with the population number included
+with open('list_of_regency.csv', 'rt') as f: #list_of_regency.csv is the lists of regency and city in Indonesia with the population number included
     reader = csv.reader(f)
     for row in reader:
         key = row[0]
