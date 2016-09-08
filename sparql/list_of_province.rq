@@ -1,0 +1,11 @@
+SELECT distinct ?province ?provinceLabel ?kemendagri WHERE {
+	
+	?province wdt:P31 wd:Q5098 .
+	?province wdt:P2588 ?kemendagri .
+	OPTIONAL { ?province p:P31 [ pq:P582 ?end ]. }
+  	FILTER(!BOUND(?end)).
+	SERVICE wikibase:label {
+	 bd:serviceParam wikibase:language "id" .
+	}
+}
+ORDER BY ?kemendagri
