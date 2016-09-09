@@ -15,4 +15,4 @@ generator = pg.WikidataSPARQLPageGenerator(QUERY, site=wikidata_site)
 items = list(generator)
 
 for x in items:
-	print(x.id)
+	print(x.id+": "+ x.labels['en'])
